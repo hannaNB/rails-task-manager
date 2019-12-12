@@ -1,0 +1,15 @@
+<h1>Les Tâche (à faire .. ou pas :)</h1>
+
+<%#= link_to "(+) Resto)", new_restaurant_path %>
+<p><%= link_to "Create a new task", new_path %></p>
+
+<ul>
+    <% @tasks.each do |task| %>
+        <% if task.completed %>
+        <li><input type="checkbox" checked="checked"><%= link_to task.title, task_path(task.id) %> | <%= link_to "Edit", edit_path(task.id) %> | <%= link_to "Delete", destroy_path(task.id), method: :delete, data: {confirm: "Just Do it ;)" } %></li>
+        <% else %>
+        <li><input type="checkbox"><%= link_to task.title, task_path(task.id) %> | <%= link_to "Edit", edit_path(task.id) %> | <%= link_to "Delete", destroy_path(task.id), method: :delete, data: {confirm: "Just Do it ;)" } %></li>
+        <% end %>
+    <% end %>
+</ul>
+
