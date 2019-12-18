@@ -12,7 +12,8 @@ class TasksController < ApplicationController
         @task = Task.new
     end
     def create
-        task = Task.create(task_params)
+        @task = Task.create(task_params)
+        @task.save
         redirect_to tasks_path
         # redirect_to tasks_path(@task.id)
     end
@@ -25,6 +26,7 @@ class TasksController < ApplicationController
     def update
         # @task = Task.find(params[:id])
         @task.update(task_params)
+        # @task.save
         redirect_to tasks_path
         # redirect_to tasks_path(@task.id)
     end
@@ -38,7 +40,7 @@ class TasksController < ApplicationController
     # Quels sont les paramètres autoriser dans le controller 
     
     def task_params
-        params.require(:task).permit(:title, :details)
+        params.require(:task).permit(:title, :details, :completed)
     end
     def set_task
         @task = Task.find(params[:id])

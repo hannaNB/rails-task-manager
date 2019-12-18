@@ -1,3 +1,16 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$gray: #F4F4F4;
+
+body {
+  background: $gray; // Using this variable
+  padding: 25px;
+}
+
+.box {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 10px;
+    padding: 5px;
+}
